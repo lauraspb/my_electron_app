@@ -1,0 +1,30 @@
+{
+  "name": "my-electron-app",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [
+    "electron",
+    "app",
+    "javascript"
+  ],
+  "homepage": "https://github.com/lauraspb/some_web_app#readme",
+  "bugs": {
+    "url": "https://github.com/lauraspb/some_web_app/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lauraspb/some_web_app.git"
+  },
+  "license": "ISC",
+  "author": "laurasofia",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --exec electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "electron": "^40.0.0",
+    "nodemon": "^3.1.11"
+  }
+}
