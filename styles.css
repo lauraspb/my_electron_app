@@ -1,3 +1,8 @@
+* {
+  box-sizing: border-box;
+}
+
+/* fonts */
 .sniglet-regular {
   font-family: "Sniglet", system-ui;
   font-weight: 400;
@@ -16,20 +21,37 @@
   font-style: normal;
 }
 
-/* Reset basic margins */
-body, html {
+
+body {
   margin: 0;
-  padding: 0;
   font-family: "Sniglet";
-  height: 100%;
-  background-color: #dcdde1; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* Prevent user from selecting text like a website */
-  user-select: none; 
+  user-select: none;
+  -webkit-app-region: drag;
+  border-radius: 20px;
+  margin: 0;
 }
 
+.app {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    width: 13.375rem;
+    padding: 1rem 1.0625rem;
+
+
+    background-image: url("images/backgrounds/desk_background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.8;
+}
+
+/* Example for images or other elements */
+img {
+  border: 0;
+}
 
 /* The Main Card Container */
 .timer-card {
@@ -37,7 +59,6 @@ body, html {
   background-color: #5d5d6a; 
   border-radius: 12px;
   padding: 8px; 
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 /* The Image Area */
@@ -98,14 +119,14 @@ body, html {
   background-color: #8f9a78; 
   color: #4E633E; 
   cursor: pointer;
+  -webkit-app-region: no-drag;
   
-  /* These lines center the icon perfectly */
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0; 
   
-  transition: transform 0.1s, background-color 0.2s;
+  transition: transform 0.06s, background-color 0.2s;
 }
 
 .circle-btn:hover {

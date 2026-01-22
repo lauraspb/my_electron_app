@@ -1,20 +1,27 @@
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
 
-function createWindow () {
+function createWindow() {
   const win = new BrowserWindow({
+    title: "plant timer",
     width: 400,
     height: 600,
+    resizable: false,
+    maximizable: false,
+    fullscreenable: false,
+    frame: false, 
+    transparent: true,
+    background: "#00000000",
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js') 
+      contextIsolation: true
     }
-  })
+  });
 
-  // load my html file
   win.loadFile('index.html')
+
 }
 
-// when electron is finished, ready to make browser windows
+
 app.whenReady().then(() => {
   createWindow()
 
