@@ -3,16 +3,38 @@
 }
 
 /* fonts */
-.sniglet-regular {
-  font-family: "Sniglet", system-ui;
+
+.tektur-cond {
+  font-family: "Tektur", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 77.7;
+}
+
+.quantico-regular {
+  font-family: "Quantico", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
-.sniglet-extrabold {
-  font-family: "Sniglet", system-ui;
-  font-weight: 800;
+.quantico-bold {
+  font-family: "Quantico", sans-serif;
+  font-weight: 700;
   font-style: normal;
+}
+
+.quantico-regular-italic {
+  font-family: "Quantico", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.quantico-bold-italic {
+  font-family: "Quantico", sans-serif;
+  font-weight: 700;
+  font-style: italic;
 }
 
 .tiny5-regular {
@@ -21,13 +43,14 @@
   font-style: normal;
 }
 
-
 body {
   margin: 0;
-  font-family: "Sniglet";
   user-select: none;
-  -webkit-app-region: drag;
-  border-radius: 20px;
+  color: #dddeff;
+  -webkit-text-stroke-width: 1px; 
+  -webkit-text-stroke-color: #61627e;
+  -webkit-app-region: drag; /* no window so on body - draggable to move */
+  border-radius: 1 0px;
   margin: 0;
 }
 
@@ -36,36 +59,43 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 0.5rem;
-    width: 13.375rem;
     padding: 1rem 1.0625rem;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
 
+    position: relative; 
+    overflow: hidden;   
+}
 
-    background-image: url("images/backgrounds/desk_background.png");
+/* virtual layer for background */
+.app::before {
+    content: "";
+    background-image: url("images/backgrounds/solidbackground1.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    opacity: 0.8;
+    opacity: .85;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1; /* behind text, buttons */
 }
 
-/* Example for images or other elements */
 img {
   border: 0;
 }
 
-/* The Main Card Container */
 .timer-card {
   width: 300px;
-  background-color: #5d5d6a; 
   border-radius: 12px;
   padding: 8px; 
 }
 
-/* The Image Area */
 .image-display {
-  background-color: #4E633E; 
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+  border-radius: 8px;
   overflow: hidden;
   height: 220px;
   display: flex;
@@ -78,27 +108,50 @@ img {
   height: 100%;
   object-fit: cover; 
   display: block;
+  position: relative;
 }
 
-/* NEW: The Timer Text Style */
+/* hold several images */
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 220px;      
+  background-color: #dddeff; 
+  border-radius: 9px;
+  overflow: hidden;
+}
+
+/* 2. The Plant */
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 3. The Gradient Overlay */
+.overlay-image {
+  position: absolute; /* Takes it out of the flow so it sits ON TOP */
+  top: 0;
+  left: 0;
+  width: 100%;        /* Stretch full width */
+  height: 100%;       /* Stretch full height */
+  object-fit: cover;  /* Ensures it stretches nicely */
+  z-index: 10;        /* Puts it above the plant */
+}
+
 #time-display {
-  background-color: #c8c8d5; /* Match the controls bg */
-  color: #4E633E; /* Dark green text */
+  color: #dddeff;
+  -webkit-text-stroke-width: 1px; 
+  -webkit-text-stroke-color: #61627e; 
   text-align: center;
-  font-size: 36px;
-  font-weight: bold;
-  padding-top: 15px;
-  margin-bottom: -10px; /* Pull it closer to controls */
 }
 
-/* The Control Bar Area */
 .controls {
-  background-color: #c8c8d5; 
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   display: flex;
-  padding-top: 23px;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   justify-content: space-around; 
   align-items: flex-start;
 }
@@ -110,14 +163,13 @@ img {
   gap: 1px;
 }
 
-/* The Circular Buttons - FIXED ALIGNMENT */
 .circle-btn {
-  width: 50px;
-  height: 50px;
+  width: 65px;
+  height: 65px;
   border-radius: 50%;
   border: none;
-  background-color: #8f9a78; 
-  color: #4E633E; 
+  background-color: #61627e; 
+  color: #61627e; 
   cursor: pointer;
   -webkit-app-region: no-drag;
   
@@ -130,35 +182,37 @@ img {
 }
 
 .circle-btn:hover {
-  background-color: #afbb99; 
+  background-color: #61627e;
+  opacity: .6;
+; 
   transform: scale(1.07);
 }
 
 .circle-btn:active {
+  
   transform: scale(0.95);
 }
 
 .label {
-  font-size: 20px;
-  color: #4E633E;
-  font-weight: normal;
-}
+  font-family: "Tektur";
+  font-size: 43px;
+  }
 
 #start-img {
-  width: 18px;
+  width: 24px;
   height: auto;
   display: block;
   margin-left: 3px; 
 }
 
 #pause-img {
-    width: 20px;
+    width: 24px;
     height: auto;
     display: block;
 }
 
 #reset-img {
-    width: 23px;
+    width: 30px;
     height: auto;
     display: block;
 }

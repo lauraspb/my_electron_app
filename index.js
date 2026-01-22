@@ -4,14 +4,13 @@ const path = require('path')
 function createWindow() {
   const win = new BrowserWindow({
     title: "plant timer",
-    width: 400,
-    height: 600,
-    resizable: false,
+    width: 350,
+    height: 525,
+    resizable: true,
     maximizable: false,
     fullscreenable: false,
     frame: false, 
     transparent: true,
-    background: "#00000000",
     webPreferences: {
       contextIsolation: true
     }
