@@ -70,7 +70,7 @@ body {
 /* virtual layer for background */
 .app::before {
     content: "";
-    background-image: url("images/backgrounds/solidbackground1.png");
+    background-image: url("images/backgrounds/solidbackground.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

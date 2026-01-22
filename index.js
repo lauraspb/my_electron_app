@@ -6,7 +6,7 @@ function createWindow() {
     title: "plant timer",
     width: 350,
     height: 525,
-    resizable: true,
+    resizable: false,
     maximizable: false,
     fullscreenable: false,
     frame: false, 
