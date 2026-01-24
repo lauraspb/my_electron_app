@@ -11,12 +11,13 @@ const pauseBtn = document.getElementById('btn-pause');
 const resetBtn = document.getElementById('btn-reset');
 const plantImg = document.getElementById('plant-img');
 const timeDisplay = document.getElementById('time-display');
+const taskInput = document.getElementById('task-input');
 const isDevMode = true; // 5 secs when true and 5 mins when false
 const stageDuration = isDevMode ? 5 : (5 * 60)
 
 // timer text
-timeDisplay.style.fontSize = "60px";
-timeDisplay.style.fontFamily = "DSEG7-Classic-MINI";
+timeDisplay.style.fontSize = "90px";
+timeDisplay.style.fontFamily = "DIGI";
 timeDisplay.innerText = formatTime(timeLeft);
 
 // place timer before/above buttons
@@ -60,7 +61,18 @@ startBtn.addEventListener('click', () => {
   if (!isRunning) {
     timer = setInterval(updateTimer, 1000); // update timer every 1 sec
     isRunning = true;
+
+    const currentTask = taskInput.value;
+
+    if (currentTask === "") {
+          console.log("No task typed!");
+        } else {
+          console.log("User is focusing on:", currentTask);
+        }
     
+    // stop taking input for intention setting
+    taskInput.disabled = true;
+
     // style when active / timer running
     startBtn.style.opacity = "0.5";
     startBtn.style.cursor = "default";
@@ -85,7 +97,13 @@ resetBtn.addEventListener('click', () => {
   isRunning = false;
   timeLeft = 25 * 60; // reset time, back to 25 mins
   timeDisplay.innerText = formatTime(timeLeft);
-  
+
+  // editable input and clear intention, prompt for what's next
+  taskInput.disabled = false;
+  taskInput.value = ""; // Clears the text so you can type a new task
+  taskInput.placeholder = "What's next?"; // Cute prompt for next task
+
+
   // update image back to pot
   currentStage = 1
   plantImage.src = `images/plant_stages/plant${currentStage}.png`;

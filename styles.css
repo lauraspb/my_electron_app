@@ -2,10 +2,10 @@
   box-sizing: border-box;
 }
 
-/* fonts */
+/* --- fonts --- */
 @font-face {
-  font-family: "DSEG7-Classic-MINI";
-  src: url(node_modules/dseg/fonts/DSEG7-Classic/DSEG7Classic-Bold.ttf);
+  font-family: "DIGI";
+  src: url(fonts/DS-DIGIB.TTF);
 } 
 
 .fredoka-con {
@@ -17,6 +17,7 @@
     "wdth" 87.5;
 }
 
+/* --- sections --- */
 body {
   margin: 0;
   user-select: none;
@@ -38,8 +39,7 @@ body {
     overflow: hidden;   
 }
 
-/* virtual layer for background */
-.app::before {
+.app::before { /* virtual layer for background */
     content: "";
     background-image: url("images/backgrounds/solidbackground.png");
     background-size: cover;
@@ -55,66 +55,17 @@ body {
     z-index: -1; /* behind text & buttons */
 }
 
-img {
-  border: 0;
-}
-
+/* --- fun components --- */
 .timer-card {
   width: 300px;
   border-radius: 12px;
   padding: 8px; 
 }
 
-.image-display {
-  border-radius: 8px;
-  overflow: hidden;
-  height: 220px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.image-display img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; 
-  display: block;
-  position: relative;
-}
-
-/* hold several images */
-.image-wrapper {
-  position: relative;
-  width: 100%;
-  height: 220px;      
-  background-color: #dddeff; 
-  border-radius: 9px;
-  overflow: hidden;
-}
-
-/* 2. The Plant */
-.background-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* 3. The Gradient Overlay */
-.overlay-image {
-  position: absolute; /* Takes it out of the flow so it sits ON TOP */
-  top: 0;
-  left: 0;
-  width: 100%;        /* Stretch full width */
-  height: 100%;       /* Stretch full height */
-  object-fit: cover;  /* Ensures it stretches nicely */
-  z-index: 10;        /* Puts it above the plant */
-}
-
 #time-display {
-  padding: 18px;
+  padding: 6px;
   color: #dddeff;
-  font-family: "DSEG7-Classic-MINI";
+  font-family: "DSEG7-Modern-Bold";
   text-align: center;
 }
 
@@ -143,7 +94,6 @@ img {
   color: #61627e; 
   cursor: pointer;
   -webkit-app-region: no-drag;
-  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -155,12 +105,9 @@ img {
 .circle-btn:hover {
   background-color: #61627e;
   opacity: .6;
-; 
-  transform: scale(1.07);
 }
 
 .circle-btn:active {
-  
   transform: scale(0.95);
 }
 
@@ -187,3 +134,91 @@ img {
     height: auto;
     display: block;
 }
+
+/* --- intentions input block --- */
+#task-input {
+  display: block;
+  background: transparent;
+  border: none;
+  margin: 10px auto 5px auto;
+  border-bottom: 1.8px solid #61627e; 
+  -webkit-app-region: no-drag;
+  z-index: 5;
+  position: relative;
+  color: #dddeff; 
+  opacity: .8;
+  font-family: "Fredoka";
+  font-size: 23px;
+  text-align: center;
+  width: 80%; 
+  padding: 4px;
+}
+
+/* no underline when clicked */
+#task-input:focus {
+  outline: none;
+  color: #dddeff;
+  border-bottom: 1.8px solid #dddeff;
+}
+
+/* placeholder text */
+#task-input::placeholder {
+  color: #dddeff;
+  opacity: 0.6;
+  font-style: italic;
+}
+
+/* focus mode */
+#task-input:disabled {
+  color: #dddeff; 
+  cursor: default;
+  font-size: 34px;
+  width: 100%;
+  border-bottom: none;
+}
+
+/* --- image styles --- */
+.image-display {
+  border-radius: 8px;
+  overflow: hidden;
+  height: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-display img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  display: block;
+  position: relative;
+}
+
+/* how to hold several images */
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 220px;      
+  background-color: #dddeff; 
+  border-radius: 9px;
+  overflow: hidden;
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.overlay-image {
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;       
+  object-fit: cover;  
+  z-index: 10;        
+}
+
