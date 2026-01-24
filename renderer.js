@@ -11,12 +11,12 @@ const pauseBtn = document.getElementById('btn-pause');
 const resetBtn = document.getElementById('btn-reset');
 const plantImg = document.getElementById('plant-img');
 const timeDisplay = document.getElementById('time-display');
-const isDevMode = false; // 5 secs when true and 5 mins when false
+const isDevMode = true; // 5 secs when true and 5 mins when false
 const stageDuration = isDevMode ? 5 : (5 * 60)
 
 // timer text
-timeDisplay.style.fontSize = "90px";
-timeDisplay.style.fontFamily = "Tektur";
+timeDisplay.style.fontSize = "60px";
+timeDisplay.style.fontFamily = "DSEG7-Classic-MINI";
 timeDisplay.innerText = formatTime(timeLeft);
 
 // place timer before/above buttons

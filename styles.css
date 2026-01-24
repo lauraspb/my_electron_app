@@ -3,55 +3,26 @@
 }
 
 /* fonts */
+@font-face {
+  font-family: "DSEG7-Classic-MINI";
+  src: url(node_modules/dseg/fonts/DSEG7-Classic/DSEG7Classic-Bold.ttf);
+} 
 
-.tektur-cond {
-  font-family: "Tektur", sans-serif;
+.fredoka-con {
+  font-family: "Fredoka", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 900;
+  font-weight: 600;
   font-style: normal;
   font-variation-settings:
-    "wdth" 77.7;
-}
-
-.quantico-regular {
-  font-family: "Quantico", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.quantico-bold {
-  font-family: "Quantico", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.quantico-regular-italic {
-  font-family: "Quantico", sans-serif;
-  font-weight: 400;
-  font-style: italic;
-}
-
-.quantico-bold-italic {
-  font-family: "Quantico", sans-serif;
-  font-weight: 700;
-  font-style: italic;
-}
-
-.tiny5-regular {
-  font-family: "Tiny5", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+    "wdth" 87.5;
 }
 
 body {
   margin: 0;
   user-select: none;
   color: #dddeff;
-  -webkit-text-stroke-width: 1px; 
-  -webkit-text-stroke-color: #61627e;
   -webkit-app-region: drag; /* no window so on body - draggable to move */
-  border-radius: 1 0px;
-  margin: 0;
+  border-radius: 10px;
 }
 
 .app {
@@ -81,7 +52,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: -1; /* behind text, buttons */
+    z-index: -1; /* behind text & buttons */
 }
 
 img {
@@ -141,9 +112,9 @@ img {
 }
 
 #time-display {
+  padding: 18px;
   color: #dddeff;
-  -webkit-text-stroke-width: 1px; 
-  -webkit-text-stroke-color: #61627e; 
+  font-family: "DSEG7-Classic-MINI";
   text-align: center;
 }
 
@@ -194,8 +165,8 @@ img {
 }
 
 .label {
-  font-family: "Tektur";
-  font-size: 43px;
+  font-family: "Fredoka";
+  font-size: 30px;
   }
 
 #start-img {
