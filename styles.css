@@ -26,6 +26,10 @@ body {
   border-radius: 10px;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 .app {
     display: flex;
     flex-direction: column;
